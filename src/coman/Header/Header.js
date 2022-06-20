@@ -19,6 +19,10 @@ import user from "../../assets/image/thumb-1.jpg";
 import Avatar from "@mui/material/Avatar";
 import logosm from "../../assets/image/logo-sm.png";
 import logo from "../../assets/image/logo.png";
+import SearchIcon from "@mui/icons-material/Search";
+import clsx from "clsx";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import TextField from "@material-ui/core/TextField";
 export default function PrimarySearchAppBar({
   isMenuOpen,
   anchorEl,
@@ -58,52 +62,6 @@ export default function PrimarySearchAppBar({
     </Menu>
   );
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleOpen}>
-        <IconButton sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src={user} />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
     <header className={classes.appBar}>
       <Box className={classes.header}>
@@ -116,13 +74,14 @@ export default function PrimarySearchAppBar({
               }}
             >
               {isNavbarOpen ? (
-                <img src={logo} height={40} alt="Upforce" />
+                <img src={logo} height={40} alt="env" />
               ) : (
-                <img src={logosm} height={30} alt="Logo" />
+                <img src={logosm} height={50} alt="Logo" />
               )}
             </Box>
           )}
         </Box>
+
         <Box
           className={classes.headerNav}
           sx={{
@@ -146,31 +105,75 @@ export default function PrimarySearchAppBar({
             </IconButton>
           </Box>
 
-          <Box>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Toolbar>
-                <IconButton sx={{ p: 0 }} onClick={handleOpen}>
-                  <Avatar alt="Remy Sharp" src={user} />
-                </IconButton>
-              </Toolbar>
-            </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </Box>
+          <Box className={classes.search}>
+            {/* <div className={classes.search}> */}
+            <Box className={classes.searchIcon}></Box>
+            <TextField
+              // label="With normal TextField"
+              placeholder="Search"
+              id="filled-start-adornment"
+              className={classes.textField}
+              onClick={handleChange}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    {" "}
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            {/* <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+            /> */}
           </Box>
+        </Box>
+
+        <Box>
+          <MenuItem>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
+              <Badge badgeContent={4} color="error">
+                <MailIcon />
+              </Badge>
+            </IconButton>
+            {/* <p>Messages</p> */}
+          </MenuItem>
+        </Box>
+
+        <Box>
+          <MenuItem>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            {/* <p>Notifications</p> */}
+          </MenuItem>
+        </Box>
+
+        <Box>
+          <MenuItem onClick={handleOpen}>
+            <IconButton sx={{ p: 0 }}>
+              <Avatar alt="Remy Sharp" src={user} />
+            </IconButton>
+            {/* <p>Profile</p> */}
+          </MenuItem>
         </Box>
       </Box>
       {renderMenu}
-      {renderMobileMenu}
     </header>
   );
 }

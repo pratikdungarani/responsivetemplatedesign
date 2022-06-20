@@ -2,7 +2,7 @@ import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    "& .css-zow5z4-MuiGrid-root": {
+    "& .css-o1xwpy-MuiGrid-root": {
       // height: "500px",
       // backgroundColor: "black",
       // height: "60px",
@@ -10,9 +10,9 @@ const useStyles = makeStyles((theme) => ({
       // margin: theme.spacing(1, 0),
       // alignItems: "center",
       // borderTop: "1px solid rgba(0, 0, 0, 0.12)",
-      marginTop: "70px",
+      marginTop: "80px",
       backgroundColor: theme.palette.common.backgrondcolor,
-      padding: "10px",
+      padding: "0px 30px",
     },
     cardMain: {
       padding: theme.spacing(3),

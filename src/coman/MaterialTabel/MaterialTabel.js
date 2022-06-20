@@ -1,5 +1,7 @@
 import React from "react";
-import MaterialTable from "material-table";
+import Divider from "@mui/material/Divider";
+import Stack from "@mui/material/Stack";
+import { styled } from "@mui/material/styles";
 import {
   Grid,
   Box,
@@ -18,17 +20,26 @@ import {
   Tooltip,
   FormControlLabel,
 } from "@mui/material";
-import { ClassNames } from "@emotion/react";
+import MoreIcon from "@material-ui/icons/MoreVert";
 import useStyle from "./style";
 
-const MaterialTabel = ({ columns, data, title }) => {
+const MaterialTabel = ({ Employe, StringAvatar, stringToColor }) => {
+  console.log("columns", Employe);
   const classes = useStyle();
-
   return (
     <div>
       <TableContainer component={Paper} className={classes.root}>
         <Box className={classes.title}>
           <Typography>Latest Transactions</Typography>
+          <Box className={classes.icon}>
+            <IconButton
+              aria-label="display more actions"
+              edge="end"
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </Box>
         </Box>
 
         <Table>
@@ -41,33 +52,36 @@ const MaterialTabel = ({ columns, data, title }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>
-                <Box className={classes.Avatar}>
-                  <Avatar className={classes.Avataricon}>v</Avatar>
-                  <Box>Vivek</Box>
-                </Box>
-              </TableCell>
-              <TableCell>30/06/98 </TableCell>
-              <TableCell>$120</TableCell>
-              <TableCell>
-                <Box className={classes.Active}>
-                  <span className={classes.tab}>Active</span>
-                </Box>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Vivek </TableCell>
-              <TableCell>30/06/98 </TableCell>
-              <TableCell>$120</TableCell>
-              <TableCell>Active</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Vivek </TableCell>
-              <TableCell>30/06/98 </TableCell>
-              <TableCell>$120</TableCell>
-              <TableCell>Active</TableCell>
-            </TableRow>
+            {Employe?.map((item) => {
+              return (
+                <TableRow>
+                  <TableCell>
+                    <Box className={classes.Avatar}>
+                      <Avatar
+                        className={classes.Avataricon}
+                        {...StringAvatar(`${item.Customer}`)}
+                      ></Avatar>
+                      <Box>{item.Customer}</Box>
+                    </Box>
+                  </TableCell>
+                  <TableCell>{item.Date}</TableCell>
+                  <TableCell>{item.Amount}</TableCell>
+                  <TableCell>
+                    <Box className={classes.Active}>
+                      <span
+                        className={
+                          item.Status === "Active"
+                            ? classes.active
+                            : classes.reject
+                        }
+                      >
+                        {item.Status}
+                      </span>
+                    </Box>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>

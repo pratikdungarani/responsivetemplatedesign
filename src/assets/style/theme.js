@@ -11,7 +11,7 @@ const theme = createTheme({
       default: "rgba(114,132,154,.7)",
     },
     common: {
-      backgrondcolor: "#57c2e6", // color Header
+      backgrondcolor: "#ffffff", // color Header
       subTitleColor: "#666c6e", //color of card subtitle
       labelColor: "#00000099", //label color of Input Field
       borderColor: "#e0e0e0",

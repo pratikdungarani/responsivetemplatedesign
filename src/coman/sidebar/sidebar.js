@@ -27,11 +27,11 @@ const Sidebar = ({
       <Box className={classes.sidebar}>
         <Drawer
           className={classes.sidebar}
+          variant="temporary"
           sx={{
             display: { xs: "block", sm: "none" },
-            ".css-4t3x6l-MuiPaper-root-MuiDrawer-paper": {
+            ">.MuiDrawer-paper": {
               width: drawerWidth.mobile,
-              mt: "40px",
             },
           }}
           open={mobileOpen}
@@ -42,19 +42,24 @@ const Sidebar = ({
           {console.log("drawerWidth.mobile", drawerWidth.mobile)}
           {drawer}
         </Drawer>
+        {console.log(isNavbarOpen, "<<<<<<<<<<<", classes.sidebar)}
         <Drawer
           // open={open}
           // onClose={handleexit}
+          variant="permanent"
           className={classes.sidebar}
           open={isNavbarOpen}
+          ModalProps={{
+            keepMounted: true,
+          }}
           onClose={() => {
             handleDrawerToggle({ clickType: "navbar" });
           }}
           sx={{
             display: { xs: "none", sm: "block" },
-            ".css-4t3x6l-MuiPaper-root-MuiDrawer-paper": {
+            ">.MuiDrawer-paper": {
               width: drawerWidth.navbar,
-              mt: "40px",
+              mt: "72px",
             },
           }}
         >
