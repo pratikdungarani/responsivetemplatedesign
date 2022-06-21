@@ -1,9 +1,5 @@
 import React from "react";
-import Divider from "@mui/material/Divider";
-import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
 import {
-  Grid,
   Box,
   Table,
   TableBody,
@@ -11,14 +7,10 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  TableSortLabel,
-  Toolbar,
   Avatar,
   Typography,
   Paper,
   IconButton,
-  Tooltip,
-  FormControlLabel,
 } from "@mui/material";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import useStyle from "./style";
@@ -30,7 +22,9 @@ const MaterialTabel = ({ Employe, StringAvatar, stringToColor }) => {
     <div>
       <TableContainer component={Paper} className={classes.root}>
         <Box className={classes.title}>
-          <Typography>Latest Transactions</Typography>
+          <Typography className={classes.subtitle}>
+            Latest Transactions
+          </Typography>
           <Box className={classes.icon}>
             <IconButton
               aria-label="display more actions"
@@ -72,6 +66,8 @@ const MaterialTabel = ({ Employe, StringAvatar, stringToColor }) => {
                         className={
                           item.Status === "Active"
                             ? classes.active
+                            : item.Status === "Pending"
+                            ? classes.Pending
                             : classes.reject
                         }
                       >
@@ -85,8 +81,6 @@ const MaterialTabel = ({ Employe, StringAvatar, stringToColor }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* {console.log("columns", columns)}
-      <MaterialTable columns={columns} data={data} title={title} /> */}
     </div>
   );
 };

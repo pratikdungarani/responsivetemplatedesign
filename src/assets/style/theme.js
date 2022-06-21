@@ -39,6 +39,12 @@ const theme = createTheme({
     groundColor: "#d9d9d9",
     pathColor: "#fafafb",
   },
+  buttoncolor: {
+    buttoncolor: "#f1a40e",
+    buttonhovercolor: "green",
+    buttontextcolor: "#fff",
+    buttonhousingcolor: "black",
+  },
   longTextTableCell: {
     overflow: "hidden",
     textOverflow: "ellipsis",

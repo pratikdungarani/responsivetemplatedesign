@@ -14,9 +14,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
-  icon: {
-    marginRight: "20px",
-  },
 
   tab: {
     padding: "5px",
@@ -49,10 +46,9 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     "&.MuiButton-root": {
-      backgroundColor: "white",
-      color: "#8d8d8d",
-      borderRadius: "12px",
-      border: "1px solid #ededed",
+      backgroundColor: "#f0f7ff",
+      color: "blue",
+      border: "0px ",
     },
   },
 

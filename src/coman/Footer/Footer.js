@@ -1,5 +1,4 @@
 import React from "react";
-// Material UI
 import { Box, Typography } from "@mui/material";
 
 import useStyles from "./style.js";

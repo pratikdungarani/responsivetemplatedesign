@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     left: "39%",
     top: "30px",
-    // position: "relative",
-    // height: "150px",
-    // width: "150px",
   },
   subtitile: {
     marginTop: "40px",
@@ -37,11 +34,8 @@ const useStyles = makeStyles((theme) => ({
     "& 	.MuiCircularProgress-svg": {
       top: "100px",
       left: "50%",
-      // top: "50%",
       height: "100px",
       width: "100px",
-
-      // margin: "-30px",
     },
   },
 }));

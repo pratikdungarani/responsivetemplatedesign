@@ -2,7 +2,6 @@ import React from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import { Paper } from "@mui/material";
-import { ClassNames } from "@emotion/react";
 import useStyles from "./style";
 
 const options = {

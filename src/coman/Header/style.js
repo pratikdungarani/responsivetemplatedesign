@@ -1,4 +1,3 @@
-// Material UI
 import { makeStyles } from "@mui/styles";
 import { alpha } from "@material-ui/core/styles";
 const useStyle = makeStyles((theme) => {
@@ -56,7 +55,6 @@ const useStyle = makeStyles((theme) => {
       width: "100%",
     },
     searchIcon: {
-      // padding: theme.spacing(0, 2),
       height: "100%",
       position: "absolute",
       pointerEvents: "none",

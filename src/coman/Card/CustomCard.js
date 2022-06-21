@@ -1,10 +1,7 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import Jointabelcontainer from "../Joinmember/jointabelcontainer";
 // Material UI
 import {
   Card,
-  Grid,
   CardContent,
   Typography,
   Box,
@@ -24,7 +21,7 @@ const CustomCard = ({ title, money, subTitle, company, count, icon }) => {
         <CardContent className={classes.cardContent}>
           {/* <Box className={classes.icon}>{icon}</Box> */}
           <Box>
-            <Typography className={classes.subTitle} variant="h6">
+            <Typography className={classes.subTitle} variant="h7">
               {title}
             </Typography>
             <Typography className={classes.title} variant="h5">
@@ -32,9 +29,7 @@ const CustomCard = ({ title, money, subTitle, company, count, icon }) => {
               <ListItemIcon>{icon}</ListItemIcon>
               <span></span>
             </Typography>
-            <Typography className={classes.title} variant="h10">
-              {company}
-            </Typography>
+            <Typography className={classes.company}>{company}</Typography>
           </Box>
         </CardContent>
       </Card>

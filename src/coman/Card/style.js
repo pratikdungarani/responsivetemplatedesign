@@ -11,7 +11,18 @@ const useStyle = makeStyles((theme) => {
       marginTop: "10px",
     },
     title: {
+      "&.MuiTypography-root": {
+        fontWeight: theme.typography.fontWeightBold,
+        marginTop: "1rem!important",
+      },
+    },
+    company: {
       marginTop: "1rem!important",
+    },
+    subTitle: {
+      "&.MuiTypography-root": {
+        fontWeight: theme.typography.fontWeightMedium,
+      },
     },
   };
 });

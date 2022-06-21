@@ -2,17 +2,27 @@ import React from "react";
 import { Grid } from "@mui/material";
 import useStyles from "./style";
 import CustomCard from "../../coman/Card/CustomCard";
-// import MaterialTabelcontaner from "../../coman/MaterialTabel/MaterialTabel";
 import MaterialTabelcontaner from "../../coman/MaterialTabel/MaterialTabelcontaner";
-// import Joinmember from "../../coman/Joinmember/joinmember";
 import Jointabelcontainer from "../../coman/Joinmember/jointabelcontainer";
 import Targetcard from "../TargetCard/Targetcard";
 import Highchart from "../Highchart/highchart";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import Pagecontaner from "../../coman/page/pagecontaner";
+
 const Dashboard = ({ companyData }) => {
   const classes = useStyles();
+  const theme = useTheme();
+
   console.log("companyData", companyData);
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <div className={classes.main}>
+    <div
+      className={classes.main}
+      sx={{
+        padding: isMobile ? "0px 15px" : "0px 25px",
+      }}
+    >
       <Grid container columnSpacing={2} className={classes.cardMain}>
         <Grid item xs={12} sm={12} md={9} lg={9}>
           <Grid container spacing={2}>
@@ -50,14 +60,6 @@ const Dashboard = ({ companyData }) => {
           <MaterialTabelcontaner />
         </Grid>
       </Grid>
-      {/* <Grid container spacing={1}>
-        <Grid item xs={12} sm={12} md={3} lg={3}>
-          <Jointabelcontainer />
-        </Grid>
-        <Grid item xs={12} sm={12} md={8} lg={9}>
-          <MaterialTabel />
-        </Grid>
-      </Grid> */}
     </div>
   );
 };

@@ -1,8 +1,9 @@
 export const menuName = {
   DEFAULT: "Default",
-  SALES: "Sales",
+  ANALYTIC: "Analytic",
   DASHBOARD: "Dashboard",
 };
 export const path = {
   DASHBOARD: "/dashboard",
+  ANALYTIC: "/Analytic",
 };

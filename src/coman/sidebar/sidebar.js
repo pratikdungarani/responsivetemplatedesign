@@ -17,9 +17,6 @@ const Sidebar = ({
   }
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
-  // if (matches) {
-  //   handleDrawerToggle({ clickType: "navbar" });
-  // }
 
   console.log("matchesside", matches);
   return (
@@ -44,8 +41,6 @@ const Sidebar = ({
         </Drawer>
         {console.log(isNavbarOpen, "<<<<<<<<<<<", classes.sidebar)}
         <Drawer
-          // open={open}
-          // onClose={handleexit}
           variant="permanent"
           className={classes.sidebar}
           open={isNavbarOpen}
@@ -67,20 +62,6 @@ const Sidebar = ({
 
           {drawer}
         </Drawer>
-        {/* <List className={classes.Drawer}>
-            <List>
-              {["Dasshbord", "Analytic", "Mail"].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-          </List> */}
       </Box>
     </>
   );

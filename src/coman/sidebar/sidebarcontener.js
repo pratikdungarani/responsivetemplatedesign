@@ -1,28 +1,14 @@
 import React, { useState } from "react";
 import Sidebar from "./sidebar";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { Link, useLocation } from "react-router-dom";
 import SidebarMenu from "./sidebarmenu";
 import useStyles from "./style.js";
 
 import {
-  Box,
-  AppBar,
-  Toolbar,
-  Container,
-  IconButton,
-  Drawer,
   List,
-  ListItem,
-  Grid,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Button,
-  Switch,
-  Typography,
-  drawerWidth,
 } from "@mui/material";
 
 const Sidebarcontener = ({
@@ -62,16 +48,6 @@ const Sidebarcontener = ({
         </List>
         {console.log("isNavbarOpen789", isNavbarOpen)}
       </List>
-      {/* <ListItemButton
-        onClick={() => {
-          handleDrawerToggle({
-            clickType: isMobile ? "mobile" : " navbar",
-          });
-        }}
-      >
-        <ListItemIcon>{menu.icon}</ListItemIcon>
-        <ListItemText primary={menu.mainMenu} />
-      </ListItemButton> */}
     </List>
   );
   return (

@@ -12,17 +12,14 @@ import {
   IconButton,
   Button,
 } from "@mui/material";
-import user from "../../assets/image/thumb-1.jpg";
-import MoreIcon from "@material-ui/icons/MoreVert";
-
-import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import useStyle from "./style";
 
-const Joinmember = ({ data }) => {
+const Entrance = () => {
   const classes = useStyle();
-  console.log("data", data);
+
   return (
     <div>
+      {" "}
       <TableContainer component={Paper} className={classes.main}>
         <Box className={classes.title}>
           <Typography className={classes.title}>New Join Member</Typography>
@@ -74,10 +71,8 @@ const Joinmember = ({ data }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* {console.log("columns", columns)}
-  <MaterialTable columns={columns} data={data} title={title} /> */}
     </div>
   );
 };
 
-export default Joinmember;
+export default Entrance;
