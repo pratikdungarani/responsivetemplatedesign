@@ -24,7 +24,6 @@ const Sidebar = ({
       <Box className={classes.sidebar}>
         <Drawer
           className={classes.sidebar}
-          variant="temporary"
           sx={{
             display: { xs: "block", sm: "none" },
             ">.MuiDrawer-paper": {

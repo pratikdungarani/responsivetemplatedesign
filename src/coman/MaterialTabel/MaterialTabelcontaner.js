@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MaterialTabel from "./MaterialTabel";
-const MaterialTabelcontaner = () => {
+const MaterialTabelcontaner = ({ column, row, title }) => {
   const [employe, setEmploye] = useState([
     {
       Customer: "Clayton Bates",
@@ -58,8 +58,10 @@ const MaterialTabelcontaner = () => {
   return (
     <div>
       <MaterialTabel
+        column={column}
+        row={row}
         Employe={employe}
-        title="Latest Transactions"
+        title={title}
         StringAvatar={StringAvatar}
         stringToColor={stringToColor}
       />

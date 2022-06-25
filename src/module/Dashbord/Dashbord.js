@@ -9,12 +9,14 @@ import Highchart from "../Highchart/highchart";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Pagecontaner from "../../coman/page/pagecontaner";
-
-const Dashboard = ({ companyData }) => {
+import Donutchart from "../../coman/Donutchart/Donutchart";
+import Sparkline from "../../coman/Sparklline/Sparkline";
+import { Paper } from "@material-ui/core";
+const Dashboard = ({ companyData, row, column, title, options2, series2 }) => {
   const classes = useStyles();
   const theme = useTheme();
 
-  console.log("companyData", companyData);
+  console.log("companyData", column);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <div
@@ -48,7 +50,20 @@ const Dashboard = ({ companyData }) => {
         </Grid>
 
         <Grid item xs={12} sm={12} md={3} lg={3}>
-          <Targetcard />
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <Targetcard />
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <Paper>
+                <Sparkline
+                  series2={series2}
+                  options2={options2}
+                  type={"area"}
+                />
+              </Paper>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
 
@@ -57,7 +72,7 @@ const Dashboard = ({ companyData }) => {
           <Jointabelcontainer />
         </Grid>
         <Grid item xs={12} sm={12} md={9} lg={9}>
-          <MaterialTabelcontaner />
+          <MaterialTabelcontaner row={row} column={column} title={title} />
         </Grid>
       </Grid>
     </div>

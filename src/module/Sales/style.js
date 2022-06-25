@@ -3,7 +3,7 @@ const useStyles = makeStyles((theme) => ({
   main: {
     marginBottom: "80px",
     marginTop: "80px",
-    padding: "0px 20px",
+    padding: "20px",
   },
 }));
 

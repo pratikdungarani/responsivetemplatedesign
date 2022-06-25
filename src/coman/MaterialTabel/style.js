@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: "20px",
   },
+  username: {
+    marginLeft: "10px",
+  },
   Avatar: {
     display: "flex",
     alignItems: "center",

@@ -15,16 +15,21 @@ import {
 import MoreIcon from "@material-ui/icons/MoreVert";
 import useStyle from "./style";
 
-const MaterialTabel = ({ Employe, StringAvatar, stringToColor }) => {
-  console.log("columns", Employe);
+const MaterialTabel = ({
+  Employe,
+  StringAvatar,
+  stringToColor,
+  row,
+  column,
+  title,
+}) => {
+  console.log("columns", column);
   const classes = useStyle();
   return (
     <div>
       <TableContainer component={Paper} className={classes.root}>
         <Box className={classes.title}>
-          <Typography className={classes.subtitle}>
-            Latest Transactions
-          </Typography>
+          <Typography className={classes.subtitle}>{title}</Typography>
           <Box className={classes.icon}>
             <IconButton
               aria-label="display more actions"
@@ -39,43 +44,34 @@ const MaterialTabel = ({ Employe, StringAvatar, stringToColor }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Customer</TableCell>
-              <TableCell>Date</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Status</TableCell>
+              {column.map((item) => {
+                return <TableCell>{item.Label}</TableCell>;
+              })}
             </TableRow>
           </TableHead>
           <TableBody>
-            {Employe?.map((item) => {
+            {row.map((row) => {
               return (
-                <TableRow>
-                  <TableCell>
-                    <Box className={classes.Avatar}>
-                      <Avatar
-                        className={classes.Avataricon}
-                        {...StringAvatar(`${item.Customer}`)}
-                      ></Avatar>
-                      <Box>{item.Customer}</Box>
-                    </Box>
-                  </TableCell>
-                  <TableCell>{item.Date}</TableCell>
-                  <TableCell>{item.Amount}</TableCell>
-                  <TableCell>
-                    <Box className={classes.Active}>
-                      <span
-                        className={
-                          item.Status === "Active"
-                            ? classes.active
-                            : item.Status === "Pending"
-                            ? classes.Pending
-                            : classes.reject
-                        }
-                      >
-                        {item.Status}
-                      </span>
-                    </Box>
-                  </TableCell>
-                </TableRow>
+                <>
+                  <TableRow>
+                    {column.map((column) => {
+                      return (
+                        <TableCell>
+                          {column.field === "customer" ? (
+                            <Box className={classes.Avatar}>
+                              <Box>{row.image}</Box>
+                              <Box className={classes.username}>
+                                {row[column.field]}
+                              </Box>
+                            </Box>
+                          ) : (
+                            <Box>{row[column.field]}</Box>
+                          )}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                </>
               );
             })}
           </TableBody>
